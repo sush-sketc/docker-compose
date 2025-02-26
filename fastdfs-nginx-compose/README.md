@@ -4,7 +4,7 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`latest` (*Dockerfile*)](https://github.com/sush-sketc/fastdfs-nginx/blob/master/Dockerfile) [![](https://images.microbadger.com/badges/image/ygqygq2/fastdfs-nginx.svg)](http://microbadger.com/images/ygqygq2/fastdfs-nginx "Get your own image badge on microbadger.com")
+- [`latest` (*Dockerfile*)](https://github.com/sush-sketc/docker-compose/tree/master/fastdfs-nginx-compose/Dockerfile) (https://github.com/sush-sketc/docker-compose/tree/master/fastdfs-nginx-compose "Get your own image badge on microbadger.com")
 
 ## Simplest docker run example
 
