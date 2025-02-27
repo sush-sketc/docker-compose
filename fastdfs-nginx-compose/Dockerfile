@@ -1,7 +1,12 @@
 ## Dockerfile
 FROM ubuntu:24.04
 
-LABEL maintainer "29ygq@sina.com"
+LABEL maintainer="sshrise206516@163.com" \
+      version="1.0" \
+      description="\
+      FastDFS is a lightweight object storage solution. If you need a general distributed file system for databases,\
+      K8s and virtual machines (such as KVM), you can learn about FastCFS which achieves strong data consistency and high performance."
+
 
 ENV FASTDFS_PATH=/opt/fdfs \
   FASTDFS_BASE_PATH=/var/fdfs \
@@ -16,9 +21,18 @@ ENV FASTDFS_PATH=/opt/fdfs \
   TRACKER_SERVER= \
   CUSTOM_CONFIG="false"
 
+# update aliyon.com
+
 # get all the dependences
-RUN apt-get update && apt-get install -y curl git gcc make wget libpcre3 libpcre3-dev zlib1g zlib1g-dev openssl libssl-dev \
-  && rm -rf /var/lib/apt/lists/*
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys  40976EAF437D05B5 && \
+#     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys  3B4FE6ACC0B21F32 && \
+#     echo '\
+#     deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse \n\
+#     deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse \n\
+#     deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse \n\
+#     deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse \n\
+#     ' | tee -a /etc/apt/sources.list && \
+RUN apt-get update  && apt-get install gnupg curl git gcc make wget openssl libssl-dev -y  && rm -rf /var/lib/apt/lists/*
 
 # create the dirs to store the files downloaded from internet
 RUN mkdir -p ${FASTDFS_PATH}/libfastcommon \
